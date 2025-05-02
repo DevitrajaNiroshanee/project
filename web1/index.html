@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack Pro | AI-Powered Health Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>HealthTrack<strong>Pro</strong></span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="patient.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+                    <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="alerts.html"><i class="fas fa-bell"></i> Alerts</a></li>
+                    <li><a href="paymybill.html"><i class="fas fa-money-check-alt"></i> Pay My Bill</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="https://i.pravatar.cc/40" alt="Doctor">
+                <div>
+                    <span class="name">Dr. Sarah Johnson</span>
+                    <span class="role">Cardiologist</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search patients, records...">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                    <button class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Widgets -->
+            <div class="dashboard-grid">
+                <!-- Health Overview Card -->
+                <div class="card health-overview">
+                    <div class="card-header">
+                        <h2>Patient Health Overview</h2>
+                        <br><br><br><br>
+                        <select class="time-selector">
+                            <option>Last 24h</option>
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                        </select>
+                    </div>
+                    <div class="vitals-container">
+                        <div class="vital-card">
+                            <div class="vital-info">
+                                <h3>Heart Rate</h3>
+                                <div class="vital-value">72 <span>bpm</span></div>
+                                <div class="vital-trend up"><i class="fas fa-arrow-up"></i> 8%</div>
+                            </div>
+                            <div class="vital-chart" id="hrChart"></div>
+                        </div>
+                        <div class="vital-card">
+                            <div class="vital-info">
+                                <h3>Blood Pressure</h3>
+                                <div class="vital-value">118/78 <span>mmHg</span></div>
+                                <div class="vital-trend down"><i class="fas fa-arrow-down"></i> 5%</div>
+                            </div>
+                            <div class="vital-chart" id="bpChart"></div>
+                        </div>
+                        <div class="vital-card">
+                            <div class="vital-info">
+                                <h3>Oxygen</h3>
+                                <div class="vital-value">97 <span>%</span></div>
+                                <div class="vital-trend stable"><i class="fas fa-equals"></i> Stable</div>
+                            </div>
+                            <div class="vital-chart" id="oxChart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Health Alerts -->
+                <div class="card alerts-card">
+                    <div class="card-header">
+                        <h2>AI Health Alerts</h2>
+                        <button class="btn-refresh"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    </div>
+                    <div class="alerts-list">
+                        <div class="alert-item critical">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h3>Abnormal Heart Rhythm Detected</h3>
+                                <p>Possible atrial fibrillation in Patient #4231</p>
+                                <span class="alert-time">2 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="alert-item warning">
+                            <div class="alert-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h3>Blood Pressure Spike</h3>
+                                <p>Systolic BP > 140mmHg for 30 minutes</p>
+                                <span class="alert-time">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="alert-item info">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h3>Medication Reminder</h3>
+                                <p>Patient #3892 due for next dose</p>
+                                <span class="alert-time">3 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ECG Live Monitor -->
+                <div class="card ecg-card">
+                    <div class="card-header">
+                        <h2>Real-time ECG Monitor</h2>
+                        <div class="ecg-controls">
+                            <button class="btn-play"><i class="fas fa-play"></i></button>
+                            <button class="btn-pause"><i class="fas fa-pause"></i></button>
+                        </div>
+                    </div>
+                    <div class="ecg-monitor" id="ecgChart"></div>
+                </div>
+
+                <!-- Patient Activity -->
+                <div class="card activity-card">
+                    <div class="card-header">
+                        <h2>Patient Activity</h2>
+                    </div>
+                    <div class="activity-stats">
+                        <div class="activity-metric">
+                            <div class="metric-value">8,542</div>
+                            <div class="metric-label">Steps Today</div>
+                        </div>
+                        <div class="activity-metric">
+                            <div class="metric-value">5.2</div>
+                            <div class="metric-label">KM Walked</div>
+                        </div>
+                        <div class="activity-metric">
+                            <div class="metric-value">87%</div>
+                            <div class="metric-label">Sleep Quality</div>
+                        </div>
+                    </div>
+                    <div class="activity-chart" id="activityChart"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.2.0"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

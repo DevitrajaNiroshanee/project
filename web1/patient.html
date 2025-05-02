@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack Pro | Patients</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>HealthTrack<strong>Pro</strong></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li class="active"><a href="patients.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+                    <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="alerts.html"><i class="fas fa-bell"></i> Alerts</a></li>
+                    <li><a href="paymybill.html"><i class="fa fa-cc-visa" aria-hidden="true"></i> Pay My Bill</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="https://i.pravatar.cc/40" alt="Doctor">
+                <div>
+                    <span class="name">Dr. Sarah Johnson</span>
+                    <span class="role">Cardiologist</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search patients...">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-add-patient">
+                        <i class="fas fa-plus"></i> New Patient
+                    </button>
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Patients Page Content -->
+            <div class="patients-container">
+                <div class="patients-header">
+                    <h2>Patient Records</h2>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="list"><i class="fas fa-list"></i></button>
+                        <button class="view-btn" data-view="grid"><i class="fas fa-th-large"></i></button>
+                    </div>
+                </div>
+
+                <!-- Patients List View -->
+                <div class="patients-list-view" id="listView">
+                    <div class="table-responsive">
+                        <table class="patients-table">
+                            <thead>
+                                <tr>
+                                    <th>Patient ID</th>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Last Visit</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#PT-1001</td>
+                                    <td class="patient-info">
+                                        <img src="https://i.pravatar.cc/40?img=1" alt="Patient">
+                                        <span>John Smith</span>
+                                    </td>
+                                    <td>45</td>
+                                    <td>Today, 10:30 AM</td>
+                                    <td><span class="status-badge stable">Stable</span></td>
+                                    <td>
+                                        <button class="btn-action"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action"><i class="fas fa-file-medical"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#PT-1002</td>
+                                    <td class="patient-info">
+                                        <img src="https://i.pravatar.cc/40?img=2" alt="Patient">
+                                        <span>Emily Johnson</span>
+                                    </td>
+                                    <td>32</td>
+                                    <td>Yesterday, 2:15 PM</td>
+                                    <td><span class="status-badge warning">Monitoring</span></td>
+                                    <td>
+                                        <button class="btn-action"><i class="fas fa-eye"></i></button>
+                                        <button class="btn-action"><i class="fas fa-edit"></i></button>
+                                        <button class="btn-action"><i class="fas fa-file-medical"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- More patients... -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                        <span class="page-number">1</span>
+                        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Patients Grid View (Hidden by default) -->
+                <div class="patients-grid-view hidden" id="gridView">
+                    <div class="patient-cards">
+                        <div class="patient-card">
+                            <div class="card-header">
+                                <img src="https://i.pravatar.cc/80?img=1" alt="Patient">
+                                <div class="patient-status stable">Stable</div>
+                            </div>
+                            <div class="card-body">
+                                <h3>John Smith</h3>
+                                <p class="patient-meta">45 years • Male</p>
+                                <div class="patient-stats">
+                                    <div class="stat-item">
+                                        <span>HR</span>
+                                        <strong>72 bpm</strong>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span>BP</span>
+                                        <strong>120/80</strong>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span>SpO2</span>
+                                        <strong>98%</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-action"><i class="fas fa-edit"></i></button>
+                                <button class="btn-action"><i class="fas fa-file-medical"></i></button>
+                            </div>
+                        </div>
+                        <!-- More patient cards... -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- New Patient Modal -->
+    <div class="modal hidden" id="patientModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Patient</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="patientForm">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Patient name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="tel" placeholder="+1 (___) ___-____" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Initial Health Notes</label>
+                        <textarea rows="3" placeholder="Any known conditions..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel">Cancel</button>
+                        <button type="submit" class="btn-submit">Save Patient</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

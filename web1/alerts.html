@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack Pro | Alerts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>HealthTrack<strong>Pro</strong></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="patients.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+                    <li><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li class="active"><a href="alerts.html"><i class="fas fa-bell"></i> Alerts</a></li>
+                    <li><a href="paymybill.html"><i class="fa fa-cc-visa" aria-hidden="true"></i> Pay My Bill</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="https://i.pravatar.cc/40" alt="Doctor">
+                <div>
+                    <span class="name">Dr. Sarah Johnson</span>
+                    <span class="role">Cardiologist</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="alert-filters">
+                    <div class="filter-group">
+                        <label>Priority:</label>
+                        <select id="priorityFilter">
+                            <option value="all">All Alerts</option>
+                            <option value="critical">Critical Only</option>
+                            <option value="warning">Warnings</option>
+                            <option value="info">Informational</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Time Range:</label>
+                        <select id="timeFilter">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                    <button class="btn-refresh">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <div class="header-actions">
+                    <div class="alert-stats">
+                        <span class="stat-item critical"><i class="fas fa-exclamation-circle"></i> 5 Critical</span>
+                        <span class="stat-item warning"><i class="fas fa-exclamation-triangle"></i> 12 Warnings</span>
+                    </div>
+                    <button class="btn-mark-all">
+                        <i class="fas fa-check-double"></i> Mark All Read
+                    </button>
+                </div>
+            </header>
+
+            <!-- Alerts Container -->
+            <div class="alerts-container">
+                <!-- Alert Groups -->
+                <div class="alert-group">
+                    <h3 class="group-title">
+                        <i class="fas fa-clock"></i> New Alerts
+                        <span class="badge">8</span>
+                    </h3>
+                    <div class="alert-list">
+                        <!-- Critical Alert -->
+                        <div class="alert-item critical unread">
+                            <div class="alert-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Critical Heart Rate</h4>
+                                    <span class="alert-time">2 mins ago</span>
+                                </div>
+                                <p>Patient #PT-1001 (John Smith) has sustained heart rate > 120bpm for 15 minutes</p>
+                                <div class="alert-actions">
+                                    <button class="btn-action view-patient">
+                                        <i class="fas fa-user-injured"></i> View Patient
+                                    </button>
+                                    <button class="btn-action acknowledge">
+                                        <i class="fas fa-check"></i> Acknowledge
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Warning Alert -->
+                        <div class="alert-item warning unread">
+                            <div class="alert-icon">
+                                <i class="fas fa-prescription-bottle-alt"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Missed Medication</h4>
+                                    <span class="alert-time">1 hour ago</span>
+                                </div>
+                                <p>Patient #PT-1042 missed their 2:00 PM dose of Metformin</p>
+                                <div class="alert-actions">
+                                    <button class="btn-action view-patient">
+                                        <i class="fas fa-user-injured"></i> View Patient
+                                    </button>
+                                    <button class="btn-action snooze">
+                                        <i class="fas fa-clock"></i> Snooze
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Older Alerts Group -->
+                <div class="alert-group">
+                    <h3 class="group-title">
+                        <i class="fas fa-history"></i> Older Alerts
+                    </h3>
+                    <div class="alert-list">
+                        <!-- Info Alert -->
+                        <div class="alert-item info">
+                            <div class="alert-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Appointment Reminder</h4>
+                                    <span class="alert-time">Yesterday, 9:30 AM</span>
+                                </div>
+                                <p>Patient #PT-2015 has an upcoming appointment tomorrow at 10:00 AM</p>
+                                <div class="alert-actions">
+                                    <button class="btn-action view-patient">
+                                        <i class="fas fa-user-injured"></i> View Patient
+                                    </button>
+                                    <button class="btn-action dismiss">
+                                        <i class="fas fa-times"></i> Dismiss
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Critical Alert (Resolved) -->
+                        <div class="alert-item critical resolved">
+                            <div class="alert-icon">
+                                <i class="fas fa-lungs"></i>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <h4>Low Oxygen Resolved</h4>
+                                    <span class="alert-time">Mar 12, 3:45 PM</span>
+                                    <span class="resolved-badge"><i class="fas fa-check-circle"></i> Resolved</span>
+                                </div>
+                                <p>Patient #PT-1008 oxygen levels returned to normal (94%) after intervention</p>
+                                <div class="alert-actions">
+                                    <button class="btn-action view-notes">
+                                        <i class="fas fa-file-medical"></i> View Notes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alert Summary Panel -->
+            <div class="alert-summary">
+                <h3><i class="fas fa-chart-pie"></i> Alert Summary</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-value">24</div>
+                        <div class="summary-label">Total Alerts Today</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">8.2 min</div>
+                        <div class="summary-label">Avg. Response Time</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-value">92%</div>
+                        <div class="summary-label">Resolution Rate</div>
+                    </div>
+                </div>
+                <div class="summary-chart" id="alertTrendChart"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/alerts.js"></script>
+</body>
+</html>

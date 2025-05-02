@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack Pro | Analytics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>HealthTrack<strong>Pro</strong></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="patient.html"><i class="fas fa-user-injured"></i> Patients</a></li>
+                    <li class="active"><a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="alerts.html"><i class="fas fa-bell"></i> Alerts</a></li>
+                    <li><a href="paymybill.html"><i class="fa fa-cc-visa" aria-hidden="true"></i> Pay My Bill</a></li>
+                    <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <img src="https://i.pravatar.cc/40" alt="Doctor">
+                <div>
+                    <span class="name">Dr. Sarah Johnson</span>
+                    <span class="role">Cardiologist</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="time-filter">
+                    <button class="time-btn active">Today</button>
+                    <button class="time-btn">Week</button>
+                    <button class="time-btn">Month</button>
+                    <button class="time-btn">Custom</button>
+                </div>
+                <div class="header-actions">
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </header>
+
+            <!-- Analytics Dashboard -->
+            <div class="analytics-container">
+                <!-- Metrics Overview -->
+                <div class="metrics-overview">
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <h3>Active Patients</h3>
+                            <div class="metric-value">142</div>
+                            <div class="metric-change up"><i class="fas fa-arrow-up"></i> 12% from last week</div>
+                        </div>
+                        <div class="metric-chart" id="patientsChart"></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <h3>Avg. Heart Rate</h3>
+                            <div class="metric-value">72 <span>bpm</span></div>
+                            <div class="metric-change down"><i class="fas fa-arrow-down"></i> 3% from baseline</div>
+                        </div>
+                        <div class="metric-chart" id="hrChart"></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <h3>Alerts</h3>
+                            <div class="metric-value">18</div>
+                            <div class="metric-change up"><i class="fas fa-arrow-up"></i> 5 new today</div>
+                        </div>
+                        <div class="metric-chart" id="alertsChart"></div>
+                    </div>
+                </div>
+
+                <!-- Main Charts Section -->
+                <div class="analytics-grid">
+                    <!-- Health Trends Chart -->
+                    <div class="analytics-card full-width">
+                        <div class="card-header">
+                            <h3>Health Trends Overview</h3>
+                            <div class="chart-legend">
+                                <span class="legend-item"><i class="fas fa-square" style="color: #4f46e5"></i> Heart Rate</span>
+                                <span class="legend-item"><i class="fas fa-square" style="color: #10b981"></i> Blood Pressure</span>
+                                <span class="legend-item"><i class="fas fa-square" style="color: #f59e0b"></i> Oxygen</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="trendsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Patient Demographics -->
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>Patient Demographics</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="demographicsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Condition Distribution -->
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>Condition Distribution</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="conditionsChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Alert Types -->
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>Alert Types</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="alertTypesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Medication Adherence -->
+                    <div class="analytics-card">
+                        <div class="card-header">
+                            <h3>Medication Adherence</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="medicationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/analytics.js"></script>
+</body>
+</html>
