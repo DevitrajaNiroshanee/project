@@ -16,5 +16,8 @@
     "url": "https://github.com/DevitrajaNiroshanee/project/issues"
   },
   "homepage": "https://github.com/DevitrajaNiroshanee/project#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
